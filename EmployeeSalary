@@ -1,0 +1,66 @@
+public class EmployeeSalary {
+    private String name;
+    private double basicSalary;
+    private double bonusPercent;
+    private double taxPercent;
+
+
+    public EmployeeSalary(String name, double basicSalary, double bonusPercent, double taxPercent) {
+        this.name = name;
+        this.basicSalary = basicSalary;
+        this.bonusPercent = bonusPercent;
+        this.taxPercent = taxPercent;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getBasicSalary() {
+        return basicSalary;
+    }
+
+    public double getBonusPercent() {
+        return bonusPercent;
+    }
+
+    public double getTaxPercent() {
+        return taxPercent;
+    }
+
+    public double calculateBonus() {
+        return basicSalary * (bonusPercent / 100);
+    }
+
+    public double calculateTax() {
+        return basicSalary * (taxPercent / 100);
+    }
+
+    public double finalSalary() {
+        return basicSalary + calculateBonus() - calculateTax();
+    }
+
+    public static void main(String[] args) {
+        EmployeeSalary emp1 = new EmployeeSalary("Ali", 1000.0, 10.0, 5.0);
+        EmployeeSalary emp2 = new EmployeeSalary("Amina", 1200.0, 8.0, 6.0);
+
+        System.out.println("EMPLOYEE SALARY REPORT");
+        System.out.println("=======================================");
+
+        System.out.println("Employee Name: " + emp1.getName());
+        System.out.println("Basic Salary: $" + emp1.getBasicSalary());
+        System.out.println("Bonus (" + emp1.getBonusPercent() + "%): $" + emp1.calculateBonus());
+        System.out.println("Tax (" + emp1.getTaxPercent() + "%): $" + emp1.calculateTax());
+        System.out.println("Final Salary (Net Income): $" + emp1.finalSalary());
+        System.out.println("---------------------------------------");
+        
+        System.out.println("Employee Name: " + emp2.getName());
+        System.out.println("Basic Salary: $" + emp2.getBasicSalary());
+        System.out.println("Bonus (" + emp2.getBonusPercent() + "%): $" + emp2.calculateBonus());
+        System.out.println("Tax (" + emp2.getTaxPercent() + "%): $" + emp2.calculateTax());
+        System.out.println("Final Salary (Net Income): $" + emp2.finalSalary());
+    }
+}
+
+
+
